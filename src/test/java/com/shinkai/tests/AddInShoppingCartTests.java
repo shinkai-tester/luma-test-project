@@ -3,6 +3,7 @@ package com.shinkai.tests;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+@DisplayName("Adding product item to cart")
 public class AddInShoppingCartTests extends TestBase {
 
     @Test

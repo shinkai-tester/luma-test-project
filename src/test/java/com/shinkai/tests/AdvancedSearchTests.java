@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+@DisplayName("Advanced Search")
 public class AdvancedSearchTests extends TestBase{
 
     @CsvSource(value = {
