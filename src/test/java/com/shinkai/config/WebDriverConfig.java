@@ -13,7 +13,7 @@ public interface WebDriverConfig extends Config {
     String[] getBrowserAndVersion();
 
     @Key("browserSize")
-    @DefaultValue("1680x1050")
+    @DefaultValue("1920x1080")
     String getBrowserSize();
 
     @Key("remoteDriverUrl")
@@ -23,5 +23,7 @@ public interface WebDriverConfig extends Config {
     @Key("baseUrl")
     @DefaultValue("https://magento.softwaretestingboard.com")
     String getBaseUrl();
+
+    String env();
 }
 
