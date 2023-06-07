@@ -11,12 +11,12 @@
 - [📋 List of UI tests](#-list-of-ui-tests)
 - [🔌 Running tests from the terminal](#-running-tests-from-the-terminal)
 - [🔧 Property files](#-property-files)
-- [⚙️ Running tests in Jenkins](#img-width4-titlejenkins-srcmedialogosjenkinslogosvg-running-tests-in-jenkins)
-- [📊 Test results report in Allure Report](#img-width4-titleallure-report-srcmedialogosalluresvg-test-results-report-in-allure-report)
-- [🚀 Integration with Allure TestOps](#img-width4-titleallure-testops-srcmedialogosalluretosvg-integration-with-allure-testops)
-- [🔗 Integration with Jira](#img-width4-titlejira-srcmedialogosjirasvg-integration-with-jira)
-- [📣 Integration with Telegram](#img-width4-titletelegram-srcmedialogostelegramsvg-telegram-notifications-using-a-bot)
-- [📹 Video of running tests](#img-width4-titleselenoid-srcmedialogosselenoidsvg-test-running-example-in-selenoid)
+- [⚙️ Running tests in Jenkins](#-running-tests-in-jenkins)
+- [📊 Test results report in Allure Report](#-test-results-report-in-allure-report)
+- [🚀 Integration with Allure TestOps](#-integration-with-allure-testops)
+- [🔗 Integration with Jira](#-integration-with-jira)
+- [📣 Integration with Telegram](#-telegram-notifications-using-a-bot)
+- [📹 Video of running tests](#-test-running-example-in-selenoid)
 
 ## 🛠️ Stack of technologies
 
