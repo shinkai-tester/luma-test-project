@@ -17,7 +17,7 @@ public interface WebDriverConfig extends Config {
     String getBrowserSize();
 
     @Key("remoteDriverUrl")
-    //@DefaultValue("selenoid.autotests.cloud")
+    //@DefaultValue("selenoid.autotests.cloud") - set it if it is needed to run the tests using remote Selenoid
     String getRemoteUrl();
 
     @Key("baseUrl")
