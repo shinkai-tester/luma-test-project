@@ -1,4 +1,4 @@
-## Automated tests for demo site Luma – Magento eCommerce
+## Automated tests for demo site [Luma](https://magento.softwaretestingboard.com/) – Magento eCommerce
 
 <p>
   <img src="media/logos/Luma.jpg" alt="Logo of Luma">
