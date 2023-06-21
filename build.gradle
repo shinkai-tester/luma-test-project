@@ -1,6 +1,7 @@
 plugins {
     id 'java-library'
     id 'io.qameta.allure' version '2.11.2'
+    id "io.freefair.lombok" version "8.0.1"
 }
 
 group = 'com.shinkai'
@@ -40,6 +41,7 @@ dependencies {
             "io.qameta.allure:allure-selenide:$allureVersion",
             "org.aeonbits.owner:owner:$ownerVersion"
     )
+    testImplementation 'org.projectlombok:lombok:1.18.26'
 }
 
 tasks.withType(JavaCompile).configureEach {

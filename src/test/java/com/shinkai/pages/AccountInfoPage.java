@@ -3,18 +3,16 @@ package com.shinkai.pages;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
-import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selectors.byId;
+import static com.codeborne.selenide.Condition.exactText;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 
 public class AccountInfoPage {
-    private final SelenideElement dashboardInfoTitle = $(".block-dashboard-info").$(".block-title");
     private final SelenideElement customerAccountInfo = $(".box-information");
-    private final SelenideElement newsletterSubscription = $(".box-newsletter");
 
     @Step("Verify 'Account Information' title")
     public void verifyPageTitle() {
-        dashboardInfoTitle
+        $(".block-dashboard-info").$(".block-title")
                 .shouldHave(exactText("Account Information"));
     }
 
@@ -32,6 +30,6 @@ public class AccountInfoPage {
 
     @Step("Verify that customer is subscribed to general subscription")
     public void verifySubscription() {
-        newsletterSubscription.shouldHave(text("You are subscribed to \"General Subscription\"."));
+        $(".box-newsletter").shouldHave(text("You are subscribed to \"General Subscription\"."));
     }
 }

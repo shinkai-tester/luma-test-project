@@ -1,6 +1,6 @@
 package com.shinkai.tests;
 
-import com.shinkai.generators.CustomerDataGenerator;
+import com.shinkai.generators.CustomerFactory;
 import com.shinkai.models.Customer;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,7 +14,7 @@ public class CreateCustomerAccountTests extends TestBase{
     @Test
     @DisplayName("Successful creation of new customer")
     void registerNewUser() {
-        Customer newCustomer = CustomerDataGenerator.getRandomCustomerData();
+        Customer newCustomer = CustomerFactory.getRandomCustomer();
 
         createAccountPage.openPage()
                 .verifyPersonalInfoHasField("First Name")
@@ -45,7 +45,7 @@ public class CreateCustomerAccountTests extends TestBase{
     @ValueSource(strings = {"firstname", "lastname", "email_address", "password", })
     @ParameterizedTest(name = "Check that field {0} is required when creating an account")
     void registerNewUserWithMissingField(String field) {
-        Customer newCustomer = CustomerDataGenerator.getRandomCustomerData();
+        Customer newCustomer = CustomerFactory.getRandomCustomer();
         createAccountPage.openPage()
                 .setFirstName(newCustomer.getFirstName())
                 .setLastName(newCustomer.getLastName())
@@ -66,7 +66,7 @@ public class CreateCustomerAccountTests extends TestBase{
     }, delimiterString = "|")
     @ParameterizedTest(name = "Check password validation error messages: {0}")
     void registerNewUserWithInvalidPassword(String wrongPassword, String errorMessage) {
-        Customer newCustomer = CustomerDataGenerator.getRandomCustomerData();
+        Customer newCustomer = CustomerFactory.getRandomCustomer();
         createAccountPage.openPage();
         createAccountPage
                 .setPassword(wrongPassword)

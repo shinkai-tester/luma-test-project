@@ -3,8 +3,8 @@ package com.shinkai.generators;
 import com.github.javafaker.Faker;
 import com.shinkai.models.Customer;
 
-public class CustomerDataGenerator {
-    public static Customer getRandomCustomerData() {
+public class CustomerFactory {
+    public static Customer getRandomCustomer() {
         Faker faker = new Faker();
 
         String firstName = faker.name().firstName(),
@@ -14,9 +14,9 @@ public class CustomerDataGenerator {
                         (8, 20, true, true, true);
 
         return new Customer()
-                .withFirstName(firstName)
-                .withLastName(lastName)
-                .withEmail(email)
-                .withPassword(password);
+                .setFirstName(firstName)
+                .setLastName(lastName)
+                .setEmail(email)
+                .setPassword(password);
     }
 }

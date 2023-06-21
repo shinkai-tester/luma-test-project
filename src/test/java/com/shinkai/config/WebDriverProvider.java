@@ -12,16 +12,17 @@ public class WebDriverProvider {
 
 
     public static void configure() {
-        Configuration.baseUrl = WebDriverProvider.config.getBaseUrl();
-        Configuration.browserSize = WebDriverProvider.config.getBrowserSize();
-        String[] browserWithVersion = WebDriverProvider.config.getBrowserAndVersion();
+        Configuration.baseUrl = config.getBaseUrl();
+        Configuration.browserSize = config.getBrowserSize();
+        String[] browserWithVersion = config.getBrowserAndVersion();
         Configuration.browser = browserWithVersion[0];
         Configuration.browserVersion = browserWithVersion[1];
         Configuration.pageLoadStrategy = "eager";
 
-        if (WebDriverProvider.config.getRemoteUrl() != null) {
-            Configuration.remote = "https://" + WebDriverProvider.authconfig.usernameSelenoid() + ":"
-                    + WebDriverProvider.authconfig.passwordSelenoid() + "@" + WebDriverProvider.config.getRemoteUrl() + "/wd/hub";
+        String remoteUrl = config.getRemoteUrl();
+        if (remoteUrl != null && !"".equals(remoteUrl)) {
+            Configuration.remote = "https://" + authconfig.usernameSelenoid() + ":"
+                    + authconfig.passwordSelenoid() + "@" + remoteUrl + "/wd/hub";
         }
 
         DesiredCapabilities capabilities = new DesiredCapabilities();

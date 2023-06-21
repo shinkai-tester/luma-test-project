@@ -13,46 +13,37 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class CreateAccountPage {
     private final SelenideElement isSubscribed = $(byId("is_subscribed"));
-    private final SelenideElement pageTitle = $(".page-title span");
-    private final SelenideElement personalInfo = $("fieldset.create.info");
-    private final SelenideElement accountInfo = $("fieldset.create.account");
-    private final SelenideElement firstnameField = $(byId("firstname"));
-    private final SelenideElement lastnameField = $(byId("lastname"));
-    private final SelenideElement emailAddressField = $(byId("email_address"));
     private final SelenideElement passwordField = $(byId("password"));
     private final SelenideElement confirmPasswordField = $(byId("password-confirmation"));
-    private final SelenideElement createAccountButton = $("button[title='Create an Account']");
-    private final SelenideElement successMessage = $(".page.messages .message-success");
-    private final SelenideElement passwordError = $(byId("password-error"));
 
     @Step("Open 'Create New Customer Account' page")
     public CreateAccountPage openPage() {
         open("/customer/account/create/");
-        pageTitle.shouldHave(exactText("Create New Customer Account"));
+        $(".page-title span").shouldHave(exactText("Create New Customer Account"));
         return this;
     }
 
     @Step("Check that 'Personal Information' section has field [{fieldName}]")
     public CreateAccountPage verifyPersonalInfoHasField(String fieldName) {
-        personalInfo.shouldHave(text(fieldName));
+        $("fieldset.create.info").shouldHave(text(fieldName));
         return this;
     }
 
     @Step("Check that 'Sign-in Information' section has field [{fieldName}]")
     public CreateAccountPage verifySignInInfoHasField(String fieldName) {
-        accountInfo.shouldHave(text(fieldName));
+        $("fieldset.create.account").shouldHave(text(fieldName));
         return this;
     }
 
     @Step("Enter customer first name: [{firstName}]")
     public CreateAccountPage setFirstName(String firstName) {
-        firstnameField.setValue(firstName);
+        $(byId("firstname")).setValue(firstName);
         return this;
     }
 
     @Step("Enter customer last name: [{lastName}]")
     public CreateAccountPage setLastName(String lastName) {
-        lastnameField.setValue(lastName);
+        $(byId("lastname")).setValue(lastName);
         return this;
     }
 
@@ -65,7 +56,7 @@ public class CreateAccountPage {
 
     @Step("Enter customer email: [{email}]")
     public CreateAccountPage setEmail(String email) {
-        emailAddressField.setValue(email);
+        $(byId("email_address")).setValue(email);
         return this;
     }
 
@@ -85,13 +76,13 @@ public class CreateAccountPage {
 
     @Step("Submit customer account creation")
     public CreateAccountPage submitAccountCreation() {
-        createAccountButton.click();
+        $("button[title='Create an Account']").click();
         return this;
     }
 
     @Step("Check 'thank you for registering' message")
     public void verifyThanksForRegistration() {
-        successMessage
+        $(".page.messages .message-success")
                 .shouldBe(visible, Duration.ofSeconds(5))
                 .shouldHave(text("Thank you for registering with Main Website Store."));
         Attach.screenshotAs("Screenshot verifying that account has been created");
@@ -111,7 +102,7 @@ public class CreateAccountPage {
 
     @Step("Verify password error message: [{errorMessage}]")
     public void verifyPasswordError(String errorMessage) {
-        passwordError.shouldHave(text(errorMessage), Duration.ofSeconds(5));
+        $(byId("password-error")).shouldHave(text(errorMessage), Duration.ofSeconds(5));
         Attach.screenshotAs("Screenshot showing password error message");
     }
 }

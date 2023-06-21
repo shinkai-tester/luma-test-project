@@ -1,7 +1,5 @@
 package com.shinkai.pages;
 
-import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.SelenideElement;
 import com.shinkai.helpers.Attach;
 import io.qameta.allure.Step;
 
@@ -11,22 +9,17 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class AdvancedSearchPage {
-    private final SelenideElement pageTitle = $(".page-title span");
-    private final SelenideElement searchFields = $(byText("Search Settings"))
-            .ancestor(".fieldset");
-    private final ElementsCollection productItems = $$(".product-items li .product-item-info");
-    private final SelenideElement productInfo = $(".product-info-main");
 
     @Step("Open 'Advanced Search' page'")
     public AdvancedSearchPage openPage() {
         open("/catalogsearch/advanced/");
-        pageTitle.shouldHave(exactText("Advanced Search"));
+        $(".page-title span").shouldHave(exactText("Advanced Search"));
         return this;
     }
 
     @Step("Verify field with name [{fieldName}] on Advanced Search")
     public AdvancedSearchPage verifySearchFieldAvailable(String fieldName) {
-        searchFields.shouldHave(text(fieldName));
+        $(byText("Search Settings")).ancestor(".fieldset").shouldHave(text(fieldName));
         return this;
     }
 
@@ -45,13 +38,13 @@ public class AdvancedSearchPage {
 
     @Step("Select first product item from search result")
     public AdvancedSearchPage selectFirstItem() {
-        productItems.first().click();
+        $$(".product-items li .product-item-info").first().click();
         return this;
     }
 
     @Step("Verify product item has searchTerm = [{searchTerm}]")
     public AdvancedSearchPage verifyTextInProductInfo(String searchTerm) {
-        productInfo.shouldHave(text(searchTerm));
+        $(".product-info-main").shouldHave(text(searchTerm));
         Attach.screenshotAs("Product Info");
         return this;
     }
