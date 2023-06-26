@@ -41,7 +41,6 @@ dependencies {
             "io.qameta.allure:allure-selenide:$allureVersion",
             "org.aeonbits.owner:owner:$ownerVersion"
     )
-    testImplementation 'org.projectlombok:lombok:1.18.26'
 }
 
 tasks.withType(JavaCompile).configureEach {
