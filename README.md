@@ -114,11 +114,9 @@ Possible properties in `auth.properties` file:
 ```properties
 usernameSelenoid=
 passwordSelenoid=
-usernameAllure=
-passwordAllure=
 ```
 
-It is needed to adapt auth.properties files locally based on your credentials to remote Selenoid and Allure TestOps.
+It is needed to adapt auth.properties files locally based on your credentials to remote Selenoid.
 
 ## <img width="4%" title="Jenkins" src="media/logos/Jenkins_logo.svg"> Running tests in [Jenkins](https://jenkins.autotests.cloud/job/Students/job/18-alin_laegnor-luma_ui_tests/)
 
