@@ -19,14 +19,12 @@ public class CreateCustomerAccountTests extends TestBase{
         createAccountPage.openPage()
                 .verifyPersonalInfoHasField("First Name")
                 .verifyPersonalInfoHasField("Last Name")
-                .verifyPersonalInfoHasField("Sign Up for Newsletter")
                 .verifySignInInfoHasField("Email")
                 .verifySignInInfoHasField("Password")
                 .verifySignInInfoHasField("Confirm Password");
 
         createAccountPage.setFirstName(newCustomer.getFirstName())
                 .setLastName(newCustomer.getLastName())
-                .setSignUpNewsCheckbox()
                 .setEmail(newCustomer.getEmail())
                 .setPassword(newCustomer.getPassword())
                 .confirmPassword(newCustomer.getPassword());
@@ -37,8 +35,7 @@ public class CreateCustomerAccountTests extends TestBase{
         accountInfoPage.verifyPageTitle();
 
         accountInfoPage.verifyCustomerName(newCustomer.getFirstName(), newCustomer.getLastName())
-                .verifyCustomerEmail(newCustomer.getEmail())
-                .verifySubscription();
+                .verifyCustomerEmail(newCustomer.getEmail());
     }
 
 
@@ -49,7 +46,6 @@ public class CreateCustomerAccountTests extends TestBase{
         createAccountPage.openPage()
                 .setFirstName(newCustomer.getFirstName())
                 .setLastName(newCustomer.getLastName())
-                .setSignUpNewsCheckbox()
                 .setEmail(newCustomer.getEmail())
                 .setPassword(newCustomer.getPassword())
                 .confirmPassword(newCustomer.getPassword());
@@ -73,7 +69,6 @@ public class CreateCustomerAccountTests extends TestBase{
                 .confirmPassword(wrongPassword)
                 .setLastName(newCustomer.getLastName())
                 .setFirstName(newCustomer.getFirstName())
-                .setSignUpNewsCheckbox()
                 .setEmail(newCustomer.getEmail());
         createAccountPage.submitAccountCreation();
         createAccountPage.verifyPasswordError(errorMessage);

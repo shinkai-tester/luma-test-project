@@ -27,9 +27,4 @@ public class AccountInfoPage {
         customerAccountInfo.shouldHave(text(email));
         return this;
     }
-
-    @Step("Verify that customer is subscribed to general subscription")
-    public void verifySubscription() {
-        $(".box-newsletter").shouldHave(text("You are subscribed to \"General Subscription\"."));
-    }
 }

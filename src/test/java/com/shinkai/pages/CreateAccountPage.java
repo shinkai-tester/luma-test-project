@@ -47,13 +47,6 @@ public class CreateAccountPage {
         return this;
     }
 
-    @Step("Select checkbox 'Sign Up for Newsletter'")
-    public CreateAccountPage setSignUpNewsCheckbox() {
-        isSubscribed.shouldBe(attribute("type", "checkbox"));
-        isSubscribed.click();
-        return this;
-    }
-
     @Step("Enter customer email: [{email}]")
     public CreateAccountPage setEmail(String email) {
         $(byId("email_address")).setValue(email);
